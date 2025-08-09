@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 export function Features() {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -22,11 +23,11 @@ export function Features() {
       color: "from-purple-500 to-pink-500"
     },
     { 
-      icon: "🤝",
-      title: "Restaurant Collaboration", 
-      desc: "Partner with nearby restaurants for unique neighborhood experiences",
-      benefit: "300% higher customer discovery",
-      details: "Multi-restaurant bags, taste tours, shared promotions",
+      icon: "💰",
+      title: "AI Cross-Selling Engine", 
+      desc: "Smart recommendations that boost order values with perfect pairings",
+      benefit: "38% average order increase",
+      details: "Context-aware suggestions, one-click additions, performance tracking",
       color: "from-green-500 to-emerald-500"
     },
     { 
@@ -140,12 +141,22 @@ export function Features() {
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
             Ready to amplify your restaurant revenue during all hours?
           </p>
-          <button className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40">
-            Start Revenue Amplification
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40">
+              Start Revenue Amplification
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+            <Link href="/features">
+              <button className="group inline-flex items-center gap-2 rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-8 py-4 text-lg font-semibold border border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                Explore All Features
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </Link>
+          </div>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
             No credit card required • Peak + slow optimization • Fresh + surplus hybrid model
           </p>

@@ -6,11 +6,14 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon, CreditCardIcon, ShieldCheckIcon, ClockIcon, MapPinIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { CheckoutCrossSell } from "@/components/customer/CheckoutCrossSell";
 
 export default function CheckoutPage() {
   const [step, setStep] = useState(1); // 1: Details, 2: Payment, 3: Confirmation
   const [paymentMethod, setPaymentMethod] = useState("card");
   const [processing, setProcessing] = useState(false);
+  const [showCrossSell, setShowCrossSell] = useState(false);
+  const [crossSellItems, setCrossSellItems] = useState<any[]>([]);
 
   const orderSummary = {
     items: [
@@ -42,8 +45,34 @@ export default function CheckoutPage() {
   };
 
   const handlePayment = async () => {
+    // Show cross-sell before processing payment
+    if (!showCrossSell) {
+      setShowCrossSell(true);
+      return;
+    }
+    
     setProcessing(true);
     // Simulate payment processing
+    setTimeout(() => {
+      setProcessing(false);
+      setStep(3);
+    }, 2000);
+  };
+
+  const handleCrossSellAdd = (item: any) => {
+    setCrossSellItems(prev => [...prev, item]);
+    
+    // Update order summary with cross-sell items
+    const additionalAmount = item.price;
+    orderSummary.subtotal += additionalAmount;
+    orderSummary.serviceFee = orderSummary.subtotal * 0.05;
+    orderSummary.total = orderSummary.subtotal + orderSummary.serviceFee;
+  };
+
+  const handleCrossSellClose = () => {
+    setShowCrossSell(false);
+    // Proceed with actual payment after cross-sell
+    setProcessing(true);
     setTimeout(() => {
       setProcessing(false);
       setStep(3);
@@ -131,6 +160,22 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      
+      {/* Checkout Cross-Sell Modal */}
+      <CheckoutCrossSell
+        cartItems={orderSummary.items.map(item => ({
+          id: item.id,
+          name: item.name,
+          restaurant: item.restaurant,
+          restaurantId: item.id === "1" ? "1" : "2", // Map to restaurant IDs
+          type: item.type,
+          price: item.price
+        }))}
+        restaurantId="1" // Primary restaurant ID
+        onAddToCart={handleCrossSellAdd}
+        onClose={handleCrossSellClose}
+        isVisible={showCrossSell}
+      />
       
       {/* Header */}
       <div className="sticky top-16 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700">
@@ -376,7 +421,7 @@ export default function CheckoutPage() {
                   disabled={processing}
                   className="w-full bg-gradient-to-r from-green-500 to-emerald-500"
                 >
-                  {processing ? "Processing..." : `Complete Order - $${orderSummary.total}`}
+                  {processing ? "Processing..." : showCrossSell ? `Complete Order - $${orderSummary.total}` : `Complete Order - $${orderSummary.total}`}
                 </Button>
               </>
             )}
@@ -388,27 +433,35 @@ export default function CheckoutPage() {
               <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
               
               <div className="space-y-4 mb-6">
-                {orderSummary.items.map((item) => (
-                  <div key={item.id} className="flex gap-3">
+                {[...orderSummary.items, ...crossSellItems].map((item, index) => (
+                  <div key={item.id || `cross-${index}`} className="flex gap-3">
                     <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex-shrink-0"></div>
                     <div className="flex-1">
                       <h3 className="font-medium text-sm">{item.name}</h3>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">{item.restaurant}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">{item.restaurant || "Cross-sell item"}</p>
                       <div className="flex items-center gap-2 text-xs text-gray-500">
                         <ClockIcon className="h-3 w-3" />
-                        <span>{item.pickupTime}</span>
+                        <span>{item.pickupTime || "Ready with order"}</span>
                       </div>
-                      {item.addOns.length > 0 && (
+                      {item.addOns && item.addOns.length > 0 && (
                         <div className="text-xs text-purple-600 mt-1">
                           + {item.addOns.length} add-on{item.addOns.length > 1 ? 's' : ''}
+                        </div>
+                      )}
+                      {!item.addOns && item.category && (
+                        <div className="text-xs text-purple-600 mt-1 capitalize">
+                          • {item.category} add-on
                         </div>
                       )}
                     </div>
                     <div className="text-right">
                       <div className="font-medium">
-                        ${((item.price + item.addOns.reduce((sum, addon) => sum + addon.price, 0)) * item.quantity).toFixed(2)}
+                        ${item.addOns 
+                          ? ((item.price + item.addOns.reduce((sum, addon) => sum + addon.price, 0)) * item.quantity).toFixed(2)
+                          : item.price.toFixed(2)
+                        }
                       </div>
-                      <div className="text-xs text-gray-500">x{item.quantity}</div>
+                      <div className="text-xs text-gray-500">x{item.quantity || 1}</div>
                     </div>
                   </div>
                 ))}

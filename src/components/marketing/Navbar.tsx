@@ -38,7 +38,7 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           <Link 
-            href="#features" 
+            href="/features" 
             className="text-gray-600 hover:text-green-600 font-medium transition-colors duration-200 hover:scale-105 transform"
           >
             Features
@@ -89,7 +89,7 @@ export function Navbar() {
           <div className="mx-auto max-w-7xl px-6 py-6">
             <div className="flex flex-col gap-4">
               <Link 
-                href="#features" 
+                href="/features" 
                 onClick={() => setOpen(false)} 
                 className="text-gray-600 hover:text-green-600 font-medium py-2 transition-colors duration-200"
               >

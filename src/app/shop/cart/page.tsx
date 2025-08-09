@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { TrashIcon, MinusIcon, PlusIcon, SparklesIcon, GiftIcon, ClockIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { ArrowLeftIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
+import { IntelligentCrossSell } from "@/components/customer/IntelligentCrossSell";
 
 interface CartItem {
   id: string;
@@ -61,6 +62,31 @@ export default function CartPage() {
       distance: "0.7 km"
     }
   ]);
+  
+  const [showCrossSell, setShowCrossSell] = useState(true);
+  const [currentTime] = useState<string>("peak"); // In real app, would determine based on actual time
+
+  const handleCrossSellAdd = (crossSellItem: any) => {
+    // Add cross-sell item as a new cart item
+    const newCartItem: CartItem = {
+      id: `cross-${Date.now()}`,
+      bagId: crossSellItem.id,
+      bagName: crossSellItem.name,
+      bagType: crossSellItem.category,
+      restaurant: cartItems[0]?.restaurant || "Restaurant",
+      restaurantId: cartItems[0]?.restaurantId || "1",
+      price: crossSellItem.price,
+      originalPrice: crossSellItem.originalPrice || crossSellItem.price,
+      quantity: 1,
+      timing: crossSellItem.timeRestriction || "Available now",
+      image: crossSellItem.image,
+      addOns: [],
+      pickupTime: cartItems[0]?.pickupTime || "Today",
+      distance: cartItems[0]?.distance || "0.5 km"
+    };
+    
+    setCartItems(prev => [...prev, newCartItem]);
+  };
 
   const updateQuantity = (itemId: string, newQuantity: number) => {
     if (newQuantity === 0) {
@@ -171,6 +197,25 @@ export default function CartPage() {
                     </div>
                   </div>
                 </div>
+              )}
+
+              {/* Intelligent Cross-Sell Recommendations */}
+              {cartItems.length > 0 && (
+                <IntelligentCrossSell
+                  cartItems={cartItems.map(item => ({
+                    id: item.id,
+                    name: item.bagName,
+                    restaurant: item.restaurant,
+                    restaurantId: item.restaurantId,
+                    type: item.bagType,
+                    price: item.price
+                  }))}
+                  restaurantId={cartItems[0]?.restaurantId || "1"}
+                  currentTime={currentTime}
+                  onAddToCart={handleCrossSellAdd}
+                  isVisible={showCrossSell}
+                  onClose={() => setShowCrossSell(false)}
+                />
               )}
 
               {/* Cart items list */}

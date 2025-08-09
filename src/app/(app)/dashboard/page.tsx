@@ -58,6 +58,7 @@ export default function DashboardPage() {
           <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
             <li><Link className="rounded-lg border p-3 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900" href="/inventory/new">Add Listing</Link></li>
             <li><Link className="rounded-lg border p-3 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900" href="/inventory/magic-bag">Create Magic Bag</Link></li>
+            <li><Link className="rounded-lg border p-3 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900" href="/inventory/cross-sell">Manage Cross-Sell</Link></li>
             <li><Link className="rounded-lg border p-3 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900" href="/orders">View Orders</Link></li>
             <li><Link className="rounded-lg border p-3 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-900" href="/analytics">Analytics</Link></li>
           </ul>
