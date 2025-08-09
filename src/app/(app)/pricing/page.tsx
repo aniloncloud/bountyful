@@ -11,8 +11,8 @@ import {
   CpuChipIcon,
   ClockIcon,
   EyeIcon,
-  TrendingUpIcon,
-  TrendingDownIcon,
+  ArrowTrendingUpIcon,
+  ArrowTrendingDownIcon,
   ExclamationTriangleIcon,
   CheckCircleIcon,
   ArrowPathIcon,
@@ -279,7 +279,7 @@ export default function DynamicPricingPage() {
                 <p className="text-sm font-medium text-gray-600">Revenue Uplift</p>
                 <div className="text-2xl font-bold text-green-600">+47.3%</div>
               </div>
-              <TrendingUpIcon className="h-8 w-8 text-green-600" />
+              <ArrowTrendingUpIcon className="h-8 w-8 text-green-600" />
             </div>
           </CardContent>
         </Card>
@@ -708,7 +708,7 @@ export default function DynamicPricingPage() {
 
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-semibold mb-3 flex items-center gap-2">
-                    <TrendingUpIcon className="h-5 w-5 text-purple-500" />
+                    <ArrowTrendingUpIcon className="h-5 w-5 text-purple-500" />
                     Demand Prediction
                   </h3>
                   <div className="space-y-2 text-sm">
