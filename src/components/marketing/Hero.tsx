@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 export function Hero() {
   const [mealsRescued, setMealsRescued] = useState(15842);
   const [co2Saved, setCo2Saved] = useState(21.3);
+  const [currentMessage, setCurrentMessage] = useState(0);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,6 +15,13 @@ export function Hero() {
       setCo2Saved(prev => +(prev + 0.001).toFixed(3));
     }, 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const messageInterval = setInterval(() => {
+      setCurrentMessage(prev => (prev + 1) % 2);
+    }, 8000);
+    return () => clearInterval(messageInterval);
   }, []);
 
   return (
@@ -45,25 +53,47 @@ export function Hero() {
         <div className="text-center">
           
           {/* Attention-grabbing badge */}
-          <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 px-4 py-2 text-sm font-medium text-green-800 shadow-sm dark:from-green-900/20 dark:to-emerald-900/20 dark:text-green-300">
-            <div className="size-2 rounded-full bg-green-500 animate-pulse" />
-            Live Impact Dashboard • {mealsRescued.toLocaleString()} meals rescued today
+          <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 px-4 py-2 text-sm font-medium text-blue-800 shadow-sm dark:from-blue-900/20 dark:to-purple-900/20 dark:text-blue-300">
+            <div className="size-2 rounded-full bg-blue-500 animate-pulse" />
+            Restaurant Revenue Amplification • {mealsRescued.toLocaleString()} experiences created today
           </div>
 
-          {/* Hero headline with emotional hook */}
-          <h1 className="mt-8 text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl">
-            <span className="block bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent drop-shadow-sm">
-              Turn Kitchen Surplus
-            </span>
-            <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-sm mt-2">
-              Into Pure Profit
-            </span>
+          {/* Hero headline with cycling messages */}
+          <h1 className="mt-8 text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl transition-all duration-1000">
+            {currentMessage === 0 ? (
+              <>
+                <span className="block bg-gradient-to-r from-blue-600 via-purple-500 to-teal-500 bg-clip-text text-transparent drop-shadow-sm">
+                  Maximize Restaurant Revenue
+                </span>
+                <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-sm mt-2">
+                  During ALL Hours
+                </span>
+              </>
+            ) : (
+              <>
+                <span className="block bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent drop-shadow-sm">
+                  Turn Kitchen Surplus
+                </span>
+                <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-sm mt-2">
+                  Into Pure Profit
+                </span>
+              </>
+            )}
           </h1>
 
-          {/* Emotional subheadline */}
-          <p className="mt-8 mx-auto max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:text-2xl">
-            Every extra dish becomes an opportunity. Every surplus meal turns into revenue. When your kitchen maximizes every ingredient, 
-            <span className="font-semibold text-green-600 dark:text-green-400"> everyone wins—your business, your customers, and our planet.</span>
+          {/* Cycling subheadlines */}
+          <p className="mt-8 mx-auto max-w-3xl text-xl leading-relaxed text-gray-600 dark:text-gray-300 md:text-2xl transition-all duration-1000">
+            {currentMessage === 0 ? (
+              <>
+                Peak hours + slow periods. Fresh experiences + surplus optimization. When your restaurant operates at full potential during every service, 
+                <span className="font-semibold text-blue-600 dark:text-blue-400"> your revenue grows 2-3x while fighting food waste.</span>
+              </>
+            ) : (
+              <>
+                Every plate you can&apos;t sell becomes profit instead of waste. Join thousands of restaurants 
+                <span className="font-semibold text-green-600 dark:text-green-400"> transforming surplus into sustainable revenue streams</span> while helping our planet.
+              </>
+            )}
           </p>
 
           {/* Enhanced CTAs with urgency */}
@@ -71,7 +101,7 @@ export function Hero() {
             <Link href={siteConfig.primaryCta.href}>
               <Button size="xl" className="group relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-2xl shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 transform hover:scale-105">
                 <span className="relative z-10 flex items-center gap-2">
-                  🚀 Start Rescuing Food Today
+                  🚀 Amplify Your Revenue Today
                   <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -96,35 +126,35 @@ export function Hero() {
               
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="text-center group">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                     {mealsRescued.toLocaleString()}
                   </div>
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Meals Rescued</div>
-                  <div className="text-xs text-green-600 dark:text-green-400">+1 every 3 seconds</div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Fresh + Surplus Orders</div>
+                  <div className="text-xs text-blue-600 dark:text-blue-400">+1 every 3 seconds</div>
                 </div>
                 
                 <div className="text-center group">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
-                    {co2Saved}t
+                  <div className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                    $3.2M
                   </div>
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">CO₂ Prevented</div>
-                  <div className="text-xs text-blue-600 dark:text-blue-400">Growing continuously</div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Revenue Amplified</div>
+                  <div className="text-xs text-green-600 dark:text-green-400">Peak + slow optimization</div>
+                </div>
+                
+                <div className="text-center group">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                    40%
+                  </div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Peak Hour Orders</div>
+                  <div className="text-xs text-orange-600 dark:text-orange-400">Fresh experiences</div>
                 </div>
                 
                 <div className="text-center group">
                   <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
-                    $2.1M
-                  </div>
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Revenue Generated</div>
-                  <div className="text-xs text-purple-600 dark:text-purple-400">From surplus food</div>
-                </div>
-                
-                <div className="text-center group">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                     4.9★
                   </div>
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Customer Rating</div>
-                  <div className="text-xs text-amber-600 dark:text-amber-400">From 12k+ reviews</div>
+                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-1">Restaurant Growth</div>
+                  <div className="text-xs text-purple-600 dark:text-purple-400">From 500+ partners</div>
                 </div>
               </div>
             </div>

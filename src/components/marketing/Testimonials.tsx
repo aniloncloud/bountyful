@@ -6,26 +6,26 @@ export function Testimonials() {
   
   const testimonials = [
     {
-      quote: "Game-changer! We went from throwing away $800 worth of food weekly to making an extra $1,200 profit from our surplus. The magic bags are so popular, customers ask when the next ones will be ready.",
+      quote: "Absolute game-changer! We're making $2,800 extra monthly from BOTH peak-time fresh experiences and surplus bags. Our revenue during slow hours jumped 300% and customers love our chef interaction moments.",
       author: "Maria Rodriguez",
       role: "Head Chef & Owner",
       restaurant: "Rosa's Kitchen",
       location: "Austin, TX",
       avatar: "👩‍🍳",
       rating: 5,
-      metric: "$1,200 extra profit/week",
+      metric: "$2,800 extra monthly revenue",
       bgColor: "from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30",
       accentColor: "from-rose-500 to-pink-500"
     },
     {
-      quote: "Our customers love knowing they're helping the environment while getting amazing deals. Magic bags sell out in 20 minutes! Plus, the analytics help us plan better and waste less.",
+      quote: "The restaurant collaboration network is incredible! We partner with the bakery and coffee shop next door for neighborhood taste tours. Our customer discovery rate increased 400% and we're selling premium fresh bags during our busiest lunch rush.",
       author: "James Chen",
       role: "Restaurant Manager", 
       restaurant: "Bamboo Garden",
       location: "San Francisco, CA",
       avatar: "👨‍💼",
       rating: 5,
-      metric: "Zero waste achieved",
+      metric: "400% customer discovery increase",
       bgColor: "from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30",
       accentColor: "from-green-500 to-emerald-500"
     },
@@ -52,6 +52,30 @@ export function Testimonials() {
       metric: "$2,100 monthly revenue",
       bgColor: "from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30",
       accentColor: "from-amber-500 to-orange-500"
+    },
+    {
+      quote: "We reduced our food waste by 73% in just 2 months. What used to go in the bin now puts money in our pocket. Our customers love the surprise bags and it's brought so many new faces through our doors.",
+      author: "Roberto Silva",
+      role: "Owner & Chef",
+      restaurant: "Luna's Bistro",
+      location: "Portland, OR",
+      avatar: "👨‍🍳",
+      rating: 5,
+      metric: "73% waste reduction",
+      bgColor: "from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30",
+      accentColor: "from-emerald-500 to-teal-500"
+    },
+    {
+      quote: "The environmental impact makes us feel great, but honestly, it's the extra $1,800/month that convinced our investors. Win-win for everyone—planet, profit, and customers getting amazing deals.",
+      author: "Lisa Park",
+      role: "General Manager",
+      restaurant: "Greenhouse Café",
+      location: "Seattle, WA",
+      avatar: "👩‍💼",
+      rating: 5,
+      metric: "$1,800 extra monthly",
+      bgColor: "from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30",
+      accentColor: "from-indigo-500 to-purple-500"
     }
   ];
 

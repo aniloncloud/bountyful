@@ -13,10 +13,10 @@ export function Impact() {
   const sectionRef = useRef(null);
 
   const finalCounts = {
-    meals: 15842,
-    co2: 21300, // in kg for easier animation
-    venues: 128,
-    revenue: 2100000, // in dollars
+    meals: 18650, // Fresh + surplus experiences
+    co2: 25200, // Environmental impact from bi-directional model
+    venues: 175, // Growing partner network
+    revenue: 3200000, // Amplified revenue from peak + slow optimization
   };
 
   useEffect(() => {
@@ -66,34 +66,34 @@ export function Impact() {
 
   const impactStats = [
     {
-      icon: "🍽️",
+      icon: "🚀",
       value: counts.meals.toLocaleString(),
-      label: "Meals Rescued",
-      subtext: "From going to landfill",
-      color: "from-green-500 to-emerald-600",
-      bgColor: "from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950",
-    },
-    {
-      icon: "🌱",
-      value: `${(counts.co2 / 1000).toFixed(1)}t`,
-      label: "CO₂ Prevented",
-      subtext: "Equivalent to 156 trees planted",
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950",
-    },
-    {
-      icon: "🏪",
-      value: counts.venues.toString(),
-      label: "Partner Restaurants",
-      subtext: "Across 50+ cities",
-      color: "from-purple-500 to-pink-600",
-      bgColor: "from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950",
+      label: "Fresh + Surplus Experiences",
+      subtext: "Peak hour + slow period orders",
+      color: "from-blue-500 to-purple-600",
+      bgColor: "from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950",
     },
     {
       icon: "💰",
       value: `$${(counts.revenue / 1000000).toFixed(1)}M`,
-      label: "Revenue Generated",
-      subtext: "From surplus food sales",
+      label: "Revenue Amplified",
+      subtext: "Beyond traditional surplus models",
+      color: "from-green-500 to-emerald-600",
+      bgColor: "from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950",
+    },
+    {
+      icon: "🤝",
+      value: counts.venues.toString(),
+      label: "Growing Partner Network",
+      subtext: "Restaurants collaborating together",
+      color: "from-purple-500 to-pink-600",
+      bgColor: "from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950",
+    },
+    {
+      icon: "🌱",
+      value: `${(counts.co2 / 1000).toFixed(1)}t`,
+      label: "CO₂ Impact",
+      subtext: "Environmental benefit as bonus",
       color: "from-orange-500 to-red-600",
       bgColor: "from-orange-50 to-red-50 dark:from-orange-950 dark:to-red-950",
     },
@@ -172,30 +172,30 @@ export function Impact() {
           ))}
         </div>
 
-        {/* Bottom section with environmental context */}
+        {/* Bottom section with revenue amplification context */}
         <div className="text-center">
-          <div className="mx-auto max-w-4xl rounded-3xl bg-gradient-to-r from-green-600 to-emerald-600 p-12 shadow-2xl text-white">
-            <div className="text-6xl mb-6">🌍</div>
+          <div className="mx-auto max-w-4xl rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 p-12 shadow-2xl text-white">
+            <div className="text-6xl mb-6">📈</div>
             <h3 className="text-3xl font-bold mb-4">
-              Together, We&apos;re Healing the Planet
+              Helping Restaurants Maximize Revenue Potential
             </h3>
             <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Food waste is responsible for 10% of global greenhouse gas emissions. 
-              By rescuing surplus food, we&apos;re not just helping restaurants—we&apos;re fighting climate change, one meal at a time.
+              We don&apos;t just reduce waste—we amplify revenue during ALL operational hours. 
+              Fresh experiences during peak times + surplus optimization during slow periods = maximum profitability.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-2xl font-bold">1/3</div>
-                <div className="text-sm opacity-80">of all food is wasted globally</div>
+                <div className="text-2xl font-bold">2-3x</div>
+                <div className="text-sm opacity-80">revenue increase vs waste-only models</div>
               </div>
               <div>
-                <div className="text-2xl font-bold">10%</div>
-                <div className="text-sm opacity-80">of greenhouse gases from food waste</div>
+                <div className="text-2xl font-bold">40%</div>
+                <div className="text-sm opacity-80">of orders during peak hours</div>
               </div>
               <div>
-                <div className="text-2xl font-bold">$1T</div>
-                <div className="text-sm opacity-80">lost annually to food waste</div>
+                <div className="text-2xl font-bold">$15-50</div>
+                <div className="text-sm opacity-80">premium experiences vs $5 surplus</div>
               </div>
             </div>
           </div>

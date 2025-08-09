@@ -6,35 +6,35 @@ export function Features() {
 
   const features = [
     { 
-      icon: "🎒",
-      title: "Magic Bags", 
-      desc: "Turn surplus into surprise bundles that customers love",
-      benefit: "$400+ extra revenue per month",
-      details: "Automated pricing, smart bundling, recurring options",
+      icon: "🚀",
+      title: "Peak Hour Amplification", 
+      desc: "Flash fresh cooking during busy periods with full staff capacity",
+      benefit: "$1,200+ extra revenue per month",
+      details: "Fresh chef specials, kitchen capacity optimization",
+      color: "from-blue-500 to-purple-500"
+    },
+    { 
+      icon: "🎁",
+      title: "Hybrid Experience Bags", 
+      desc: "Fresh premium bags + surprise surplus bags for all hours",
+      benefit: "$15-50 premium vs $5 surplus",
+      details: "Chef interactions, cooking tips, collaborative options",
       color: "from-purple-500 to-pink-500"
     },
     { 
-      icon: "📱",
-      title: "Instant Orders", 
-      desc: "Orders flow directly to your kitchen dashboard",
-      benefit: "Zero missed orders, 98% accuracy",
-      details: "QR code pickup, real-time notifications",
-      color: "from-blue-500 to-cyan-500"
-    },
-    { 
-      icon: "📊",
-      title: "Smart Analytics", 
-      desc: "Know exactly what to cook and when to discount",
-      benefit: "Reduce waste by 45% on average",
-      details: "Peak time insights, demand forecasting",
+      icon: "🤝",
+      title: "Restaurant Collaboration", 
+      desc: "Partner with nearby restaurants for unique neighborhood experiences",
+      benefit: "300% higher customer discovery",
+      details: "Multi-restaurant bags, taste tours, shared promotions",
       color: "from-green-500 to-emerald-500"
     },
     { 
-      icon: "💳",
-      title: "Instant Payouts", 
-      desc: "Money in your account within 24 hours",
-      benefit: "Improve cash flow immediately",
-      details: "No hidden fees, transparent pricing",
+      icon: "🧠",
+      title: "Smart Timing Intelligence", 
+      desc: "Learn each restaurant's unique peak/slow patterns",
+      benefit: "40% orders during peak hours",
+      details: "Restaurant-specific optimization, bi-directional pricing",
       color: "from-orange-500 to-red-500"
     },
   ];
@@ -54,11 +54,11 @@ export function Features() {
           </div>
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-white">
-              Built for Busy Kitchens
+              Revenue Amplification Tools
             </span>
           </h2>
           <p className="mt-6 mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300 md:text-xl">
-            No complicated software. No training required. Just simple tools that work the way you do.
+            Beyond waste reduction. Innovative features that maximize revenue during peak AND slow periods.
           </p>
         </div>
 
@@ -138,16 +138,16 @@ export function Features() {
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Ready to turn your surplus into success?
+            Ready to amplify your restaurant revenue during all hours?
           </p>
-          <button className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 px-8 py-4 text-lg font-semibold text-white shadow-xl shadow-green-500/25 transition-all duration-300 hover:scale-105 hover:shadow-green-500/40">
-            Get Started Free
+          <button className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 text-lg font-semibold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40">
+            Start Revenue Amplification
             <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
-            No credit card required • Setup in under 5 minutes
+            No credit card required • Peak + slow optimization • Fresh + surplus hybrid model
           </p>
         </div>
       </div>
