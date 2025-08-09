@@ -1,5 +1,7 @@
 "use client";
 
+import { siteConfig } from "@/config/site";
+
 export function CompetitiveComparison() {
   const features = [
     {
@@ -101,7 +103,7 @@ export function CompetitiveComparison() {
             </div>
             <div className="text-center">
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl px-4 py-3 mb-2">
-                <div className="font-bold text-lg">Good2Go</div>
+                <div className="font-bold text-lg">{siteConfig.shortName}</div>
                 <div className="text-xs opacity-90">Complete Platform</div>
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">

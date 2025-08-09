@@ -1,7 +1,8 @@
 export type IntegrationKey = "stripe" | "paypal" | "square" | "pos" | "analytics";
 
 export const siteConfig = {
-  name: "Good2Go Restaurants",
+  name: "Good 2 Go",
+  shortName: "Good2Go", 
   description: "Operational hub for surplus listings, orders, and insights",
   logo: {
     light: "/next.svg",

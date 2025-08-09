@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 export default function DevPreviewPage() {
   const features = [
@@ -7,6 +8,7 @@ export default function DevPreviewPage() {
       category: "🏠 Landing & Marketing",
       items: [
         { name: "Landing Page", href: "/", description: "Hero, features, testimonials with animations" },
+        { name: "Features Page", href: "/features", description: "Comprehensive feature showcase with ROI calculator, case studies & competitive analysis" },
         { name: "Marketing Layout", href: "/", description: "Navbar, footer with newsletter signup" },
       ]
     },
@@ -25,9 +27,10 @@ export default function DevPreviewPage() {
       ]
     },
     {
-      category: "📊 Main Dashboard",
+      category: "📊 Restaurant Dashboard",
       items: [
         { name: "Dashboard Home", href: "/dashboard", description: "Overview, stats, quick actions" },
+        { name: "AI Dynamic Pricing", href: "/pricing", description: "Real-time price optimization with surge, clearance & engagement algorithms" },
         { name: "Advanced Analytics", href: "/analytics", description: "AI-powered insights, revenue tracking, environmental impact" },
         { name: "Settings", href: "/settings", description: "Account and preferences" },
       ]
@@ -36,6 +39,7 @@ export default function DevPreviewPage() {
       category: "📦 Inventory Management",
       items: [
         { name: "Smart Inventory Listings", href: "/inventory/listings", description: "AI-powered inventory with dynamic pricing, analytics & performance metrics" },
+        { name: "Cross-Sell Management", href: "/inventory/cross-sell", description: "Intelligent cross-selling engine with 25-40% AOV boost analytics" },
         { name: "Add New Listing", href: "/inventory/new", description: "Comprehensive item creation form" },
         { name: "AI Magic Bag Studio", href: "/inventory/magic-bag", description: "AI-curated surprise bags with Simple/Advanced modes & customer insights" },
         { name: "Inventory Overview", href: "/inventory", description: "Main inventory dashboard" },
@@ -57,7 +61,7 @@ export default function DevPreviewPage() {
         { name: "Restaurant Profile", href: "/shop/restaurant/1", description: "Individual restaurant with bag options" },
         { name: "Peak Experiences", href: "/shop/peak-experiences", description: "Flash cooking and high-capacity kitchen features" },
         { name: "Shopping Cart", href: "/shop/cart", description: "Cart with intelligent cross-selling" },
-        { name: "Checkout Flow", href: "/shop/checkout", description: "Conversion-optimized checkout process" },
+        { name: "Checkout Flow", href: "/shop/checkout", description: "Conversion-optimized checkout with Domino's-style cross-sell enhancement" },
         { name: "Order Tracking & Pickup", href: "/shop/orders", description: "'I'm Here' notifications, enhanced pickup confirmation & issue reporting" },
         { name: "User Profile", href: "/shop/profile", description: "Customer profile with achievements" },
       ]
@@ -108,7 +112,7 @@ export default function DevPreviewPage() {
             Developer Preview Mode
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            🚀 Good2Go Restaurant App
+            🚀 {siteConfig.name} App
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Complete restaurant revenue amplification platform with AI-powered features, enhanced pickup system, and superior customer experience
@@ -117,7 +121,8 @@ export default function DevPreviewPage() {
             <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full dark:bg-green-900/30 dark:text-green-300">✨ AI Magic Bags</span>
             <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full dark:bg-blue-900/30 dark:text-blue-300">📍 "I'm Here" Pickup</span>
             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full dark:bg-purple-900/30 dark:text-purple-300">💰 Dynamic Pricing</span>
-            <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full dark:bg-orange-900/30 dark:text-orange-300">📊 Advanced Analytics</span>
+            <span className="px-3 py-1 bg-orange-100 text-orange-800 rounded-full dark:bg-orange-900/30 dark:text-orange-300">🛒 Smart Cross-Sell</span>
+            <span className="px-3 py-1 bg-pink-100 text-pink-800 rounded-full dark:bg-pink-900/30 dark:text-pink-300">🚀 Features Page</span>
           </div>
         </div>
 
@@ -125,7 +130,7 @@ export default function DevPreviewPage() {
         {/* Enhanced Stats */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
-            <div className="text-2xl font-bold text-green-600">25+</div>
+            <div className="text-2xl font-bold text-green-600">30+</div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Pages Built</div>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
@@ -200,16 +205,16 @@ export default function DevPreviewPage() {
         {/* Enhanced Feature Highlights */}
         <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 rounded-xl border border-blue-200 dark:border-blue-800 p-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            🚀 What Makes Good2Go Different
+            🚀 What Makes {siteConfig.shortName} Different
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-4">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">vs TGTG</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">vs Competitors</h3>
               <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                <li>• Two-way pickup confirmation</li>
-                <li>• Real-time inventory tracking</li>
-                <li>• AI-powered content curation</li>
-                <li>• Restaurant-friendly operations</li>
+                <li>• Peak hour revenue amplification</li>
+                <li>• AI cross-selling with 38%+ AOV boost</li>
+                <li>• Checkout moment upsells</li>
+                <li>• Revenue-first approach</li>
               </ul>
             </div>
             <div className="text-center p-4">
@@ -295,8 +300,11 @@ export default function DevPreviewPage() {
             <Link href="/dashboard" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
               Dashboard
             </Link>
-            <Link href="/inventory/new" className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-              Add Listing
+            <Link href="/features" className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+              🚀 Features Page
+            </Link>
+            <Link href="/pricing" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+              💰 AI Pricing
             </Link>
             <Link href="/onboarding/restaurant-profile" className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
               Onboarding

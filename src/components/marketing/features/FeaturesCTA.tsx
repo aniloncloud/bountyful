@@ -156,7 +156,8 @@ export function FeaturesCTA() {
               <span className="font-semibold text-green-300">No Setup Fees</span>
             </div>
             <p className="text-white/90">
-              <strong>Complete implementation at no upfront cost.</strong> 
+              <strong>Complete implementation at no upfront cost.</strong>
+              <br /> <br />
               Get started immediately with full platform access.
             </p>
           </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 import { ShoppingBagIcon, UserIcon, MapPinIcon, MagnifyingGlassIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { HeartIcon, ClockIcon } from "@heroicons/react/24/solid";
 
@@ -17,10 +18,10 @@ export function CustomerNavigation() {
           {/* Logo */}
           <Link href="/shop" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">G2G</span>
+              <span className="text-white font-bold text-sm">{siteConfig.shortName?.slice(0,3)}</span>
             </div>
             <span className="font-bold text-xl bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              Good2Go
+              {siteConfig.shortName}
             </span>
           </Link>
 

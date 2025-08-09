@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
 
 export function CustomerFooter() {
   return (
@@ -8,9 +9,9 @@ export function CustomerFooter() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">G2G</span>
+                <span className="text-white font-bold text-sm">{siteConfig.shortName?.slice(0,3)}</span>
               </div>
-              <span className="font-bold text-xl">Good2Go</span>
+              <span className="font-bold text-xl">{siteConfig.shortName}</span>
             </div>
             <p className="text-gray-300 text-sm mb-4">
               Maximizing restaurant revenue during ALL hours. Fresh experiences + surplus optimization.
@@ -64,7 +65,7 @@ export function CustomerFooter() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Good2Go. All rights reserved. Revolutionizing restaurant revenue.
+              © 2025 {siteConfig.shortName}. All rights reserved. Revolutionizing restaurant revenue.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</Link>

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/config/site";
 
 export function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -42,7 +43,7 @@ export function Testimonials() {
       accentColor: "from-blue-500 to-cyan-500"
     },
     {
-      quote: "Good2Go transformed how we think about surplus. Instead of a cost center, it's now a revenue stream. The real-time insights are incredible—we know exactly when to create magic bags for maximum impact.",
+      quote: `${siteConfig.shortName} transformed how we think about surplus. Instead of a cost center, it's now a revenue stream. The real-time insights are incredible—we know exactly when to create magic bags for maximum impact.`,
       author: "Ahmed Hassan", 
       role: "Executive Chef",
       restaurant: "Spice Route",
