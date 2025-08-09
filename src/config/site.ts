@@ -8,8 +8,8 @@ export const siteConfig = {
     dark: "/next.svg",
   },
   primaryCta: {
-    label: "Get started",
-    href: "/signup",
+    label: "Browse Experiences",
+    href: "/shop",
   },
   secondaryCta: {
     label: "Learn more",

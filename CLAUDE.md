@@ -1,0 +1,1 @@
+- think thoroughly, use sequential thinking mcp everytime before you implement
