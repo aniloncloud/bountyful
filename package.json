@@ -2,6 +2,10 @@
   "name": "bountyful",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aniloncloud/bountyful.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
