@@ -123,7 +123,7 @@ export function CheckoutCrossSell({
     const availableItems = crossSellDatabase[restaurantId] || [];
     
     // AI Algorithm: Perfect pairing analysis
-    let recommendations: CheckoutCrossItem[] = [];
+    const recommendations: CheckoutCrossItem[] = [];
     
     // 1. Perfect matches first (AI-determined pairings)
     const perfectMatches = availableItems.filter(item => item.perfectMatch);

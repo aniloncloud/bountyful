@@ -457,7 +457,7 @@ export default function CheckoutPage() {
                     <div className="text-right">
                       <div className="font-medium">
                         ${item.addOns 
-                          ? ((item.price + item.addOns.reduce((sum, addon) => sum + addon.price, 0)) * item.quantity).toFixed(2)
+                          ? ((item.price + item.addOns.reduce((sum: number, addon: any) => sum + addon.price, 0)) * item.quantity).toFixed(2)
                           : item.price.toFixed(2)
                         }
                       </div>

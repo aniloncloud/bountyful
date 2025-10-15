@@ -149,7 +149,7 @@ export function CompetitiveComparison() {
                         </div>
                       </div>
 
-                      {/* Good2Go status */}
+                      {/* Bountyful status */}
                       <div className="flex flex-col items-center">
                         {getStatusIcon(item.us)}
                         <div className="text-xs text-center mt-2 font-medium text-green-600">

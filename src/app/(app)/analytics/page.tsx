@@ -308,7 +308,7 @@ export default function AnalyticsPage() {
                         dataKey="value" 
                         nameKey="name" 
                         outerRadius={100} 
-                        label={({name, percent}) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                        label={({name, percent}) => `${name}: ${((percent || 0) * 100).toFixed(0)}%`}
                       >
                         <Cell fill="#8b5cf6" />
                         <Cell fill="#f59e0b" />

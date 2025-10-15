@@ -608,7 +608,7 @@ export default function OrdersPage() {
             restaurant: {
               name: getSelectedOrder()?.restaurant.name || '',
               address: getSelectedOrder()?.restaurant.address || ''
-            },
+            } as any,
             items: getSelectedOrder()?.items.map(item => ({
               id: item.id,
               name: item.name,
@@ -618,7 +618,7 @@ export default function OrdersPage() {
             })) || [],
             pickupTime: getSelectedOrder()?.pickupTime || '',
             total: getSelectedOrder()?.total || 0
-          }}
+          } as any}
           onConfirmPickup={handlePickupConfirmation}
         />
       )}

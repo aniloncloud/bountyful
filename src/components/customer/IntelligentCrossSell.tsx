@@ -135,7 +135,7 @@ export function IntelligentCrossSell({
 
   const generateRecommendations = () => {
     const restaurantItems = crossSellDatabase[restaurantId] || [];
-    let recommendations: CrossSellItem[] = [];
+    const recommendations: CrossSellItem[] = [];
 
     // Algorithm 1: Complement analysis based on cart contents
     const hasMainDish = cartItems.some(item => item.type.includes("pasta") || item.type.includes("sushi"));

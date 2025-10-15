@@ -1,0 +1,23 @@
+
+> restaurant-app-placeholder@0.1.0 build
+> next build
+
+   ▲ Next.js 15.4.6
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 1000ms
+   Skipping linting
+   Checking validity of types ...
+Failed to compile.
+
+./src/components/customer/ConversionOptimizer.tsx:279:23
+Type error: Argument of type '"conversion_add_to_cart"' is not assignable to parameter of type 'AnalyticsEvent'.
+
+[0m [90m 277 |[39m   [36mreturn[39m {
+ [90m 278 |[39m     trackAddToCart[33m:[39m (bagId[33m:[39m string[33m,[39m source[33m:[39m [32m"main"[39m [33m|[39m [32m"cross_sell"[39m [33m|[39m [32m"recommendation"[39m) [33m=>[39m {
+[31m[1m>[22m[39m[90m 279 |[39m       analytics[33m.[39mtrack([32m'conversion_add_to_cart'[39m[33m,[39m {
+ [90m     |[39m                       [31m[1m^[22m[39m
+ [90m 280 |[39m         bag_id[33m:[39m bagId[33m,[39m
+ [90m 281 |[39m         source[33m,[39m
+ [90m 282 |[39m         is_cross_sell[33m:[39m source [33m===[39m [32m'cross_sell'[39m[0m
+Next.js build worker exited with code: 1 and signal: null

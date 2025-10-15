@@ -19,14 +19,21 @@ type AnalyticsEvent =
   | "search_performed"
   | "filter_applied"
   | "favorite_added"
-  | "review_submitted";
+  | "review_submitted"
+  | "conversion_modal_shown"
+  | "conversion_modal_clicked"
+  | "conversion_modal_closed"
+  | "conversion_add_to_cart"
+  | "conversion_checkout_start"
+  | "conversion_purchase"
+  | "conversion_cross_sell";
 
 interface AnalyticsData {
   event: AnalyticsEvent;
   properties?: Record<string, any>;
   timestamp?: number;
   sessionId?: string;
-  userId?: string;
+  userId?: string | null;
 }
 
 class AnalyticsService {
@@ -80,8 +87,8 @@ class AnalyticsService {
     try {
       // Example implementation - replace with your analytics provider
       // Google Analytics 4
-      if (typeof gtag !== 'undefined') {
-        gtag('event', data.event, {
+      if (typeof (window as any).gtag !== 'undefined') {
+        (window as any).gtag('event', data.event, {
           ...data.properties,
           session_id: data.sessionId,
           user_id: data.userId
@@ -100,8 +107,8 @@ class AnalyticsService {
       });
 
       // Mixpanel example
-      if (typeof mixpanel !== 'undefined') {
-        mixpanel.track(data.event, data.properties);
+      if (typeof (window as any).mixpanel !== 'undefined') {
+        (window as any).mixpanel.track(data.event, data.properties);
       }
     } catch (error) {
       // Fail silently for analytics

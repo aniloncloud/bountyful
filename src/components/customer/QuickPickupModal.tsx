@@ -283,7 +283,7 @@ export function QuickPickupModal({
               <div className="text-4xl mb-4">✅</div>
               <h4 className="font-semibold text-lg mb-2">Pickup Complete!</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                Digital receipt sent. Thanks for using Good2Go!
+                Digital receipt sent. Thanks for using Bountyful!
               </p>
               
               <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg text-sm">

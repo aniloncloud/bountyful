@@ -179,7 +179,7 @@ export default function RestaurantProfilePage() {
             Step 2 of 3: Complete Restaurant Setup
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Setup Your Good2Go Profile
+            Setup Your Bountyful Profile
           </h1>
           <p className="mt-2 text-gray-600 dark:text-gray-300">
             Import from Google and configure features to start maximizing your surplus revenue

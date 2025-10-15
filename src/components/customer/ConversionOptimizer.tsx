@@ -29,7 +29,7 @@ export function ConversionOptimizer() {
     {
       id: "first_visit",
       type: "time_based",
-      title: "Welcome to Good2Go! 🎉",
+      title: "Welcome to Bountyful! 🎉",
       description: "New to fresh experiences and surplus surprises?",
       offer: "Get 20% off your first order",
       cta: "Claim Welcome Offer",

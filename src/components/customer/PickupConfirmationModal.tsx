@@ -333,7 +333,7 @@ export function PickupConfirmationModal({
               <div className="text-4xl mb-4">✅</div>
               <h4 className="font-semibold text-lg mb-2">Pickup Confirmed!</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                Thank you for using Good2Go. Your pickup has been recorded and digital receipt sent.
+                Thank you for using Bountyful. Your pickup has been recorded and digital receipt sent.
               </p>
               
               <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">

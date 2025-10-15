@@ -222,7 +222,7 @@ export default function DynamicPricingPage() {
           <div className="flex items-center gap-2">
             <Switch
               checked={aiPricingEnabled}
-              onCheckedChange={setAiPricingEnabled}
+              onChange={setAiPricingEnabled}
             />
             <span className="text-sm font-medium">AI Pricing {aiPricingEnabled ? 'Enabled' : 'Disabled'}</span>
           </div>
@@ -230,7 +230,7 @@ export default function DynamicPricingPage() {
           <div className="flex items-center gap-2">
             <Switch
               checked={autoApproveEnabled}
-              onCheckedChange={setAutoApproveEnabled}
+              onChange={setAutoApproveEnabled}
             />
             <span className="text-sm font-medium">Auto-Approve</span>
           </div>

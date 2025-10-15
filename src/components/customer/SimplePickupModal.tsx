@@ -179,7 +179,7 @@ export function SimplePickupModal({
               <div className="text-4xl mb-2">✅</div>
               <h4 className="font-semibold text-lg">Pickup Confirmed!</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Digital receipt sent • Thanks for using Good2Go!
+                Digital receipt sent • Thanks for using Bountyful!
               </p>
             </div>
           )}

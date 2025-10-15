@@ -10,7 +10,7 @@ export const venueInfoSchema = z.object({
 });
 
 export const venueInfoFields: FieldConfig[] = [
-  { type: "text", name: "venueName", label: "Venue Name", placeholder: "Good2Go Kitchen" },
+  { type: "text", name: "venueName", label: "Venue Name", placeholder: "Bountyful Kitchen" },
   { type: "text", name: "address", label: "Address", placeholder: "123 Food St, City" },
   { type: "text", name: "hours", label: "Hours", placeholder: "Mon-Fri 9am-9pm" },
   { type: "text", name: "phone", label: "Phone", placeholder: "(555) 123-4567" },

@@ -6,7 +6,7 @@ export function ROICalculator() {
   const [monthlyOrders, setMonthlyOrders] = useState(150);
   const [averageOrderValue, setAverageOrderValue] = useState(25);
   const [peakHours, setPeakHours] = useState(6);
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState<any>(null);
 
   const calculateROI = () => {
     // Base revenue

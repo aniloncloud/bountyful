@@ -10,10 +10,8 @@ import { Switch } from "@/components/ui/switch";
 import { 
   SparklesIcon, 
   CpuChipIcon,
-  ClockIcon,
   ChartBarIcon,
   UserGroupIcon,
-  LightBulbIcon,
   CalendarIcon,
   BeakerIcon,
   GiftIcon,
@@ -65,7 +63,6 @@ interface AIContentSuggestion {
 export default function MagicBagsPage() {
   const [advancedMode, setAdvancedMode] = useState(false);
   const [activeTab, setActiveTab] = useState("templates");
-  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
   const [aiSuggestionsEnabled, setAiSuggestionsEnabled] = useState(true);
   const [autoSchedulingEnabled, setAutoSchedulingEnabled] = useState(true);
 
@@ -73,7 +70,7 @@ export default function MagicBagsPage() {
   const [templates] = useState<MagicBagTemplate[]>([
     {
       id: "template-1",
-      name: "Chef's Morning Surprise",
+      name: "Chef&apos;s Morning Surprise",
       description: "Fresh breakfast pastries, coffee pairing, and seasonal fruit selection",
       category: "breakfast",
       timeSlot: "06:00-11:00",
@@ -229,7 +226,7 @@ export default function MagicBagsPage() {
             <div className="flex items-center gap-2">
               <Switch
                 checked={aiSuggestionsEnabled}
-                onCheckedChange={setAiSuggestionsEnabled}
+                onChange={setAiSuggestionsEnabled}
               />
               <span className="text-sm font-medium">AI Suggestions</span>
             </div>
@@ -545,7 +542,7 @@ export default function MagicBagsPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CpuChipIcon className="h-5 w-5 text-blue-600" />
-                AI Content Suggestions for Today's Italian Lunch Adventure
+                AI Content Suggestions for Today&apos;s Italian Lunch Adventure
               </CardTitle>
               <CardDescription>
                 Based on current surplus inventory, customer preferences, and surprise optimization
@@ -614,7 +611,7 @@ export default function MagicBagsPage() {
                   <Label className="text-base font-medium">Value Optimization</Label>
                   <p className="text-sm text-gray-600">Prioritize higher-value items in suggestions</p>
                 </div>
-                <Switch defaultChecked />
+                <Switch checked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -622,7 +619,7 @@ export default function MagicBagsPage() {
                   <Label className="text-base font-medium">Dietary Preference Matching</Label>
                   <p className="text-sm text-gray-600">Match customer dietary preferences when possible</p>
                 </div>
-                <Switch defaultChecked />
+                <Switch checked />
               </div>
 
               <div className="flex items-center justify-between">
@@ -721,7 +718,7 @@ export default function MagicBagsPage() {
                   <ul className="space-y-1 text-sm">
                     <li>• Fusion experiments (+31%)</li>
                     <li>• Mystery ingredients (+27%)</li>
-                    <li>• Chef's wild cards (+24%)</li>
+                    <li>• Chef&apos;s wild cards (+24%)</li>
                   </ul>
                 </div>
               </div>
@@ -738,7 +735,7 @@ export default function MagicBagsPage() {
                 Automated Magic Bag Scheduling
               </CardTitle>
               <CardDescription>
-                Set up recurring magic bags based on your restaurant's patterns
+                Set up recurring magic bags based on your restaurant&apos;s patterns
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -750,7 +747,7 @@ export default function MagicBagsPage() {
                 </div>
                 <Switch 
                   checked={autoSchedulingEnabled}
-                  onCheckedChange={setAutoSchedulingEnabled}
+                  onChange={setAutoSchedulingEnabled}
                 />
               </div>
 
@@ -761,7 +758,7 @@ export default function MagicBagsPage() {
                     <div>
                       <Label>Morning Bags (6-11 AM)</Label>
                       <select className="w-full mt-1 px-3 py-2 border rounded-lg">
-                        <option>Chef's Morning Surprise</option>
+                        <option>Chef&apos;s Morning Surprise</option>
                         <option>Healthy Breakfast Box</option>
                         <option>Pastry & Coffee Combo</option>
                         <option>Custom...</option>
@@ -814,13 +811,13 @@ export default function MagicBagsPage() {
           {/* Schedule Preview */}
           <Card>
             <CardHeader>
-              <CardTitle>This Week's Schedule</CardTitle>
+              <CardTitle>This Week&apos;s Schedule</CardTitle>
               <CardDescription>Preview of automatically scheduled magic bags</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 {[
-                  { day: "Today", bags: ["Chef's Morning Surprise (6 AM)", "Italian Lunch Adventure (11 AM)", "Sunset Comfort Box (4 PM)"] },
+                  { day: "Today", bags: ["Chef&apos;s Morning Surprise (6 AM)", "Italian Lunch Adventure (11 AM)", "Sunset Comfort Box (4 PM)"] },
                   { day: "Tomorrow", bags: ["Healthy Breakfast Box (6 AM)", "Green Lunch Special (11 AM)", "Family Dinner Box (4 PM)"] },
                   { day: "Friday", bags: ["Weekend Breakfast (7 AM)", "Italian Adventure (11 AM)", "Comfort Weekend Box (4 PM)"] }
                 ].map((schedule, idx) => (
