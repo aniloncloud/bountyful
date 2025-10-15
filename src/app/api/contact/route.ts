@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
 
     // Send email via Resend
     await resend.emails.send({
-      from: 'Bountyful Contact Form <noreply@bountyful.app>',
+      from: 'Bountyful Contact Form <noreply@updates.bountyful.app>',
       to: toEmail,
       replyTo: email,
       subject: `[${type.toUpperCase()}] ${subject}`,
