@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { EnvelopeIcon, PhoneIcon, MapPinIcon, ChatBubbleLeftRightIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon } from "@heroicons/react/24/outline";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us | Bountyful",
@@ -20,103 +21,31 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {/* Contact Methods */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {/* General Support */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <ChatBubbleLeftRightIcon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                General Support
-              </h2>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              For general inquiries, order issues, or app support
-            </p>
-            <a
-              href="mailto:support@bountyful.app"
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-            >
-              support@bountyful.app
-            </a>
-            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-              Response time: Within 24-48 hours
-            </p>
-          </div>
+        {/* Contact Forms */}
+        <div className="space-y-8 mb-12">
+          <ContactForm
+            type="support"
+            title="General Support"
+            description="For general inquiries, order issues, or app support. Response time: 24-48 hours"
+          />
 
-          {/* Privacy & Data */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                <EnvelopeIcon className="w-6 h-6 text-green-600 dark:text-green-400" />
-              </div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Privacy & Data Requests
-              </h2>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              For privacy concerns, data requests, or account deletion
-            </p>
-            <a
-              href="mailto:privacy@bountyful.app"
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-            >
-              privacy@bountyful.app
-            </a>
-            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-              Response time: Within 30 days (as required by GDPR/CCPA)
-            </p>
-          </div>
+          <ContactForm
+            type="privacy"
+            title="Privacy & Data Requests"
+            description="For privacy concerns, data requests, or account deletion. Response time: Within 30 days (GDPR/CCPA requirement)"
+          />
 
-          {/* Legal */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                <EnvelopeIcon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Legal & Business
-              </h2>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              For legal matters, partnerships, or business inquiries
-            </p>
-            <a
-              href="mailto:legal@bountyful.app"
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-            >
-              legal@bountyful.app
-            </a>
-            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-              Response time: Within 5-7 business days
-            </p>
-          </div>
+          <ContactForm
+            type="legal"
+            title="Legal & Business Inquiries"
+            description="For legal matters, partnerships, or business inquiries. Response time: 5-7 business days"
+          />
 
-          {/* Restaurant Partners */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
-                <PhoneIcon className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-              </div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Restaurant Partners
-              </h2>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              Interested in joining Bountyful as a restaurant partner?
-            </p>
-            <a
-              href="mailto:partners@bountyful.app"
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
-            >
-              partners@bountyful.app
-            </a>
-            <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-              Response time: Within 2-3 business days
-            </p>
-          </div>
+          <ContactForm
+            type="partners"
+            title="Restaurant Partners"
+            description="Interested in joining Bountyful as a restaurant partner? Response time: 2-3 business days"
+          />
         </div>
 
         {/* Office Address */}
@@ -137,7 +66,7 @@ export default function ContactPage() {
               United States
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-4">
-              Please note: This address is for postal mail only. For faster responses, please use email.
+              Please note: This address is for postal mail only. For faster responses, please use the contact forms above.
             </p>
           </div>
         </div>
@@ -162,7 +91,7 @@ export default function ContactPage() {
 
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                What should I include in my support email?
+                What should I include in my message?
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 To help us assist you faster, please include:
@@ -181,7 +110,7 @@ export default function ContactPage() {
                 How do I report a problem with an order?
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Contact us at support@bountyful.app within 24 hours of pickup. Include your order number,
+                Use the General Support form above within 24 hours of pickup. Include your order number,
                 photos of the issue (if applicable), and a description of the problem. We'll review your
                 case and determine if a refund or credit is appropriate.
               </p>
@@ -192,8 +121,8 @@ export default function ContactPage() {
                 How do I delete my account?
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                You can delete your account directly in the app (Settings → Account → Delete Account) or
-                by contacting privacy@bountyful.app. See our{" "}
+                You can delete your account directly in the app (Settings → Privacy → Delete Account) or
+                by using the Privacy & Data Requests form above. See our{" "}
                 <a
                   href="/legal/data-deletion"
                   className="text-blue-600 dark:text-blue-400 hover:underline"
@@ -206,22 +135,29 @@ export default function ContactPage() {
 
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Do you have phone support?
+                How do I become a restaurant partner?
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Currently, we only offer email support to ensure we can provide detailed, documented responses
-                to all inquiries. This also helps us maintain accurate records for data privacy compliance.
+                We'd love to work with you! Use the Restaurant Partners form above with information about your
+                restaurant, including name, location, cuisine type, and estimated daily surplus. Our
+                partnerships team will reach out within 2-3 business days.
               </p>
             </div>
 
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                How do I become a restaurant partner?
+                Is my message secure?
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                We'd love to work with you! Email partners@bountyful.app with information about your
-                restaurant, including name, location, cuisine type, and estimated daily surplus. Our
-                partnerships team will reach out within 2-3 business days.
+                Yes! All form submissions are encrypted in transit (TLS/HTTPS) and we never share your
+                contact information with third parties. See our{" "}
+                <a
+                  href="/legal/privacy"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Privacy Policy
+                </a>{" "}
+                for details.
               </p>
             </div>
           </div>
