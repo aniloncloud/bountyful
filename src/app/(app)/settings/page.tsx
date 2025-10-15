@@ -10,15 +10,19 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { 
-  BuildingStorefrontIcon, 
-  ClockIcon, 
-  CurrencyDollarIcon, 
-  BellIcon, 
+import {
+  BuildingStorefrontIcon,
+  ClockIcon,
+  CurrencyDollarIcon,
+  BellIcon,
   ShieldCheckIcon,
   UserGroupIcon,
   ChartBarIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
+  LockClosedIcon,
+  ArrowDownTrayIcon,
+  TrashIcon,
+  ExclamationTriangleIcon
 } from "@heroicons/react/24/outline";
 
 // Enhanced schema matching onboarding complexity
@@ -36,13 +40,13 @@ const settingsSchema = z.object({
   
   // Business Hours
   businessHours: z.object({
-    monday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    tuesday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    wednesday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    thursday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    friday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    saturday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
-    sunday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().default(false) }),
+    monday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    tuesday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    wednesday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    thursday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    friday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    saturday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
+    sunday: z.object({ open: z.string(), close: z.string(), closed: z.boolean().optional() }),
   }),
 
   // Pricing Rules
@@ -112,9 +116,12 @@ type SettingsForm = z.infer<typeof settingsSchema>;
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState("profile");
   const [saving, setSaving] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deletePassword, setDeletePassword] = useState("");
+  const [exportingData, setExportingData] = useState(false);
 
   const { register, handleSubmit, formState, watch, setValue } = useForm<SettingsForm>({
-    resolver: zodResolver(settingsSchema),
+    resolver: zodResolver(settingsSchema) as any,
     defaultValues: {
       // Load current settings - in real app would come from API
       restaurantName: "Bella Vista Italian",
@@ -222,7 +229,7 @@ export default function SettingsPage() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8">
+        <TabsList className="grid w-full grid-cols-5 lg:grid-cols-9">
           <TabsTrigger value="profile" className="flex items-center gap-2">
             <BuildingStorefrontIcon className="h-4 w-4" />
             <span className="hidden sm:inline">Profile</span>
@@ -254,6 +261,10 @@ export default function SettingsPage() {
           <TabsTrigger value="loyalty" className="flex items-center gap-2">
             <UserGroupIcon className="h-4 w-4" />
             <span className="hidden sm:inline">Loyalty</span>
+          </TabsTrigger>
+          <TabsTrigger value="privacy" className="flex items-center gap-2">
+            <LockClosedIcon className="h-4 w-4" />
+            <span className="hidden sm:inline">Privacy</span>
           </TabsTrigger>
         </TabsList>
 
@@ -396,7 +407,7 @@ export default function SettingsPage() {
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={!watch(`businessHours.${day}.closed`)}
-                        onCheckedChange={(checked) => {
+                        onChange={(checked) => {
                           setValue(`businessHours.${day}.closed`, !checked);
                         }}
                       />
@@ -449,7 +460,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("pricingRules.enableTimeBased")}
-                    onCheckedChange={(checked) => setValue("pricingRules.enableTimeBased", checked)}
+                    onChange={(checked) => setValue("pricingRules.enableTimeBased", checked)}
                   />
                 </div>
 
@@ -489,7 +500,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("pricingRules.weatherAdjustments")}
-                    onCheckedChange={(checked) => setValue("pricingRules.weatherAdjustments", checked)}
+                    onChange={(checked) => setValue("pricingRules.weatherAdjustments", checked)}
                   />
                 </div>
 
@@ -500,7 +511,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("pricingRules.demandBasedPricing")}
-                    onCheckedChange={(checked) => setValue("pricingRules.demandBasedPricing", checked)}
+                    onChange={(checked) => setValue("pricingRules.demandBasedPricing", checked)}
                   />
                 </div>
               </CardContent>
@@ -528,7 +539,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("operations.autoAcceptOrders")}
-                    onCheckedChange={(checked) => setValue("operations.autoAcceptOrders", checked)}
+                    onChange={(checked) => setValue("operations.autoAcceptOrders", checked)}
                   />
                 </div>
 
@@ -563,7 +574,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("operations.enableKitchenDisplay")}
-                    onCheckedChange={(checked) => setValue("operations.enableKitchenDisplay", checked)}
+                    onChange={(checked) => setValue("operations.enableKitchenDisplay", checked)}
                   />
                 </div>
 
@@ -574,7 +585,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("operations.requireCustomerRating")}
-                    onCheckedChange={(checked) => setValue("operations.requireCustomerRating", checked)}
+                    onChange={(checked) => setValue("operations.requireCustomerRating", checked)}
                   />
                 </div>
               </CardContent>
@@ -602,7 +613,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("notifications.orderNotifications")}
-                    onCheckedChange={(checked) => setValue("notifications.orderNotifications", checked)}
+                    onChange={(checked) => setValue("notifications.orderNotifications", checked)}
                   />
                 </div>
 
@@ -613,7 +624,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("notifications.customerArrivals")}
-                    onCheckedChange={(checked) => setValue("notifications.customerArrivals", checked)}
+                    onChange={(checked) => setValue("notifications.customerArrivals", checked)}
                   />
                 </div>
 
@@ -624,7 +635,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("notifications.lowInventoryAlerts")}
-                    onCheckedChange={(checked) => setValue("notifications.lowInventoryAlerts", checked)}
+                    onChange={(checked) => setValue("notifications.lowInventoryAlerts", checked)}
                   />
                 </div>
 
@@ -635,7 +646,7 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("notifications.revenueReports")}
-                    onCheckedChange={(checked) => setValue("notifications.revenueReports", checked)}
+                    onChange={(checked) => setValue("notifications.revenueReports", checked)}
                   />
                 </div>
 
@@ -646,9 +657,228 @@ export default function SettingsPage() {
                   </div>
                   <Switch
                     checked={watch("notifications.smsNotifications")}
-                    onCheckedChange={(checked) => setValue("notifications.smsNotifications", checked)}
+                    onChange={(checked) => setValue("notifications.smsNotifications", checked)}
                   />
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Privacy & Data Tab */}
+          <TabsContent value="privacy" className="space-y-6">
+            {/* Data Export */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <ArrowDownTrayIcon className="h-5 w-5" />
+                  Download Your Data
+                </CardTitle>
+                <CardDescription>
+                  Export a copy of your account data in JSON format (GDPR/CCPA compliance)
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  You can download all your data including restaurant profile, orders, analytics, and settings.
+                  The export will be delivered to your email within 48 hours.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    disabled={exportingData}
+                    onClick={() => {
+                      setExportingData(true);
+                      setTimeout(() => {
+                        setExportingData(false);
+                        alert("Data export requested! You'll receive an email with download link within 48 hours.");
+                      }, 2000);
+                    }}
+                    className="flex items-center gap-2"
+                  >
+                    <ArrowDownTrayIcon className="h-4 w-4" />
+                    {exportingData ? "Requesting Export..." : "Request Data Export"}
+                  </Button>
+                  <a
+                    href="/legal/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                  >
+                    Learn more about data privacy →
+                  </a>
+                </div>
+                <div className="text-xs text-gray-500 dark:text-gray-500 mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                  <p><strong>What's included:</strong></p>
+                  <ul className="list-disc pl-5 mt-1 space-y-1">
+                    <li>Restaurant profile and business information</li>
+                    <li>Order history and transaction records</li>
+                    <li>Menu items and pricing data</li>
+                    <li>Analytics and performance metrics</li>
+                    <li>Customer interaction logs</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Privacy Settings */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <LockClosedIcon className="h-5 w-5" />
+                  Privacy Settings
+                </CardTitle>
+                <CardDescription>
+                  Manage your data and privacy preferences
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-4">
+                  <a
+                    href="/legal/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 border rounded-lg hover:border-blue-500 transition-colors"
+                  >
+                    <div>
+                      <h4 className="font-medium text-gray-900 dark:text-white">Privacy Policy</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        Learn how we collect, use, and protect your data
+                      </p>
+                    </div>
+                    <span className="text-blue-600 dark:text-blue-400">→</span>
+                  </a>
+
+                  <a
+                    href="/legal/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 border rounded-lg hover:border-blue-500 transition-colors"
+                  >
+                    <div>
+                      <h4 className="font-medium text-gray-900 dark:text-white">Terms of Service</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        Review our user agreement and service terms
+                      </p>
+                    </div>
+                    <span className="text-blue-600 dark:text-blue-400">→</span>
+                  </a>
+
+                  <a
+                    href="/legal/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 border rounded-lg hover:border-blue-500 transition-colors"
+                  >
+                    <div>
+                      <h4 className="font-medium text-gray-900 dark:text-white">Contact Support</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        Get help with privacy or data concerns
+                      </p>
+                    </div>
+                    <span className="text-blue-600 dark:text-blue-400">→</span>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Account Deletion */}
+            <Card className="border-red-200 dark:border-red-900">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-red-600 dark:text-red-400">
+                  <TrashIcon className="h-5 w-5" />
+                  Delete Account
+                </CardTitle>
+                <CardDescription>
+                  Permanently delete your account and all associated data
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                  <div className="flex gap-3">
+                    <ExclamationTriangleIcon className="h-5 w-5 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-yellow-800 dark:text-yellow-200">
+                      <p className="font-semibold mb-2">Warning: This action cannot be undone</p>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>All your restaurant data will be permanently deleted</li>
+                        <li>Order history will be anonymized but retained for 7 years (legal requirement)</li>
+                        <li>Pending orders must be completed or cancelled first</li>
+                        <li>Account deletion takes up to 30 days to complete</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {!showDeleteConfirm ? (
+                  <div className="flex flex-col gap-3">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Before deleting, consider downloading your data using the export feature above.
+                      You can also{" "}
+                      <a href="/legal/data-deletion" target="_blank" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        read our account deletion policy
+                      </a>.
+                    </p>
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      onClick={() => setShowDeleteConfirm(true)}
+                      className="w-full sm:w-auto bg-red-600 hover:bg-red-700"
+                    >
+                      <TrashIcon className="h-4 w-4 mr-2" />
+                      Delete My Account
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-4 p-4 border-2 border-red-200 dark:border-red-800 rounded-lg">
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Confirm Account Deletion
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      To confirm deletion, please enter your password:
+                    </p>
+                    <div>
+                      <Label htmlFor="deletePassword">Password</Label>
+                      <Input
+                        id="deletePassword"
+                        type="password"
+                        value={deletePassword}
+                        onChange={(e) => setDeletePassword(e.target.value)}
+                        placeholder="Enter your password"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div className="flex gap-3">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          setShowDeleteConfirm(false);
+                          setDeletePassword("");
+                        }}
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="destructive"
+                        disabled={!deletePassword}
+                        onClick={() => {
+                          if (deletePassword) {
+                            // In real app, this would call API to delete account
+                            alert(
+                              "Account deletion initiated. You will receive a confirmation email. Your account will be permanently deleted within 30 days."
+                            );
+                            setShowDeleteConfirm(false);
+                            setDeletePassword("");
+                          }
+                        }}
+                        className="bg-red-600 hover:bg-red-700"
+                      >
+                        Permanently Delete Account
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </TabsContent>

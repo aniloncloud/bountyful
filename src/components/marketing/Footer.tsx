@@ -17,15 +17,15 @@ export function Footer() {
     ],
     Support: [
       { name: "Help Center", href: "/help" },
-      { name: "Contact", href: "/contact" },
+      { name: "Contact Us", href: "/legal/contact" },
       { name: "Restaurant Setup", href: "/setup" },
       { name: "API Docs", href: "/docs" },
     ],
     Legal: [
-      { name: "Privacy", href: "/privacy" },
-      { name: "Terms", href: "/terms" },
-      { name: "Cookies", href: "/cookies" },
-      { name: "CCPA", href: "/ccpa" },
+      { name: "Privacy Policy", href: "/legal/privacy" },
+      { name: "Terms of Service", href: "/legal/terms" },
+      { name: "Account Deletion", href: "/legal/data-deletion" },
+      { name: "Contact", href: "/legal/contact" },
     ],
   };
 
@@ -40,7 +40,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-lg">
-                <span className="text-white font-bold text-xl">G2</span>
+                <span className="text-white font-bold text-xl">🍴</span>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                 {siteConfig.name}

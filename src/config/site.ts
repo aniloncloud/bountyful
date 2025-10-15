@@ -1,9 +1,9 @@
 export type IntegrationKey = "stripe" | "paypal" | "square" | "pos" | "analytics";
 
 export const siteConfig = {
-  name: "Good 2 Go",
-  shortName: "Good2Go", 
-  description: "Operational hub for surplus listings, orders, and insights",
+  name: "Bountyful",
+  shortName: "Bountyful",
+  description: "Rescue surplus food, save money, reduce waste",
   logo: {
     light: "/next.svg",
     dark: "/next.svg",
