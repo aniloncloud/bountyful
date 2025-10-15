@@ -130,11 +130,11 @@ export default function ContactPage() {
             </h2>
           </div>
           <div className="text-gray-700 dark:text-gray-300">
-            <p className="font-medium">Bountyful, Inc.</p>
+            <p className="font-medium">Bountyful, Corp.</p>
             <p className="mt-2">
-              [Your Company Address]<br />
-              [City, State ZIP]<br />
-              [Country]
+              131 Continental Dr Ste 305<br />
+              Newark, DE 19713<br />
+              United States
             </p>
             <p className="text-sm text-gray-500 dark:text-gray-500 mt-4">
               Please note: This address is for postal mail only. For faster responses, please use email.

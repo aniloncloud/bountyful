@@ -24,7 +24,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Welcome to Bountyful! These Terms of Service ("Terms") constitute a legally binding agreement between
-              you and Bountyful, Inc. ("Bountyful," "we," "our," or "us") governing your access to and use of the
+              you and Bountyful, Corp. ("Bountyful," "we," "our," or "us") governing your access to and use of the
               Bountyful mobile application, website, and related services (collectively, the "Service").
             </p>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
@@ -500,7 +500,7 @@ export default function TermsOfServicePage() {
               Arbitration Rules.
             </p>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
-              The arbitration will be conducted in [Your Jurisdiction] or remotely by video conference. The
+              The arbitration will be conducted in the State of Delaware or remotely by video conference. The
               arbitrator's decision is final and binding, and judgment may be entered in any court of competent
               jurisdiction.
             </p>
@@ -541,7 +541,7 @@ export default function TermsOfServicePage() {
               15.1 Governing Law
             </h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law
+              These Terms are governed by the laws of the State of Delaware, without regard to conflict of law
               principles.
             </p>
 
@@ -606,9 +606,10 @@ export default function TermsOfServicePage() {
               <p className="text-gray-700 dark:text-gray-300"><strong>Email:</strong> legal@bountyful.app</p>
               <p className="text-gray-700 dark:text-gray-300 mt-2"><strong>Support:</strong> support@bountyful.app</p>
               <p className="text-gray-700 dark:text-gray-300 mt-2">
-                <strong>Mail:</strong> Bountyful Legal Department<br />
-                [Your Company Address]<br />
-                [City, State ZIP]
+                <strong>Mail:</strong> Bountyful, Corp.<br />
+                Legal Department<br />
+                131 Continental Dr Ste 305<br />
+                Newark, DE 19713
               </p>
             </div>
           </section>

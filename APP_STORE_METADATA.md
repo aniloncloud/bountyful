@@ -269,13 +269,13 @@ Download Bountyful and make a difference! 🌱
 
 ### Developer
 
-**Developer Name:** Bountyful, Inc.
+**Developer Name:** Bountyful, Corp.
 **Developer Email:** legal@bountyful.app
 **Developer Address:**
-[Your Company Name]
-[Street Address]
-[City, State ZIP]
-[Country]
+Bountyful, Corp.
+131 Continental Dr Ste 305
+Newark, DE 19713
+United States
 
 ### Partnership
 

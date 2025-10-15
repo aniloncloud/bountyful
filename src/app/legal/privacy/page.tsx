@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
               1. Introduction
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Welcome to Bountyful ("we," "our," or "us"). We are committed to protecting your privacy and
+              Welcome to Bountyful, Corp. ("Bountyful," "we," "our," or "us"). We are committed to protecting your privacy and
               ensuring the security of your personal information. This Privacy Policy explains how we collect,
               use, disclose, and safeguard your information when you use our mobile application and services
               (collectively, the "Service").
@@ -508,9 +508,10 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-700 dark:text-gray-300"><strong>Email:</strong> privacy@bountyful.app</p>
               <p className="text-gray-700 dark:text-gray-300 mt-2"><strong>Support:</strong> support@bountyful.app</p>
               <p className="text-gray-700 dark:text-gray-300 mt-2">
-                <strong>Mail:</strong> Bountyful Privacy Team<br />
-                [Your Company Address]<br />
-                [City, State ZIP]
+                <strong>Mail:</strong> Bountyful, Corp.<br />
+                Privacy Team<br />
+                131 Continental Dr Ste 305<br />
+                Newark, DE 19713
               </p>
             </div>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
