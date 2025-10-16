@@ -203,9 +203,9 @@ export default function ContactPage() {
               href="/shop"
               className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
             >
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Browse Surplus Food</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Download Mobile App</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Find available Magic Bags near you
+                Get the app to browse restaurants and place orders
               </p>
             </a>
           </div>
