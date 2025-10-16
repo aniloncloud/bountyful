@@ -32,32 +32,30 @@ export function CustomerFooter() {
           <div>
             <h3 className="font-semibold mb-4">For Customers</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/shop" className="text-gray-300 hover:text-green-500 transition-colors">Browse Restaurants</Link></li>
-              <li><Link href="/shop/how-it-works" className="text-gray-300 hover:text-green-500 transition-colors">How It Works</Link></li>
-              <li><Link href="/shop/fresh-experiences" className="text-gray-300 hover:text-green-500 transition-colors">Fresh Experiences</Link></li>
-              <li><Link href="/shop/surplus-bags" className="text-gray-300 hover:text-green-500 transition-colors">Surplus Bags</Link></li>
-              <li><Link href="/shop/support" className="text-gray-300 hover:text-green-500 transition-colors">Customer Support</Link></li>
+              <li><Link href="/shop" className="text-gray-300 hover:text-green-500 transition-colors">Download App</Link></li>
+              <li><Link href="/features" className="text-gray-300 hover:text-green-500 transition-colors">How It Works</Link></li>
+              <li><Link href="/legal/contact" className="text-gray-300 hover:text-green-500 transition-colors">Customer Support</Link></li>
+              <li><Link href="/legal/privacy" className="text-gray-300 hover:text-green-500 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/legal/terms" className="text-gray-300 hover:text-green-500 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">For Restaurants</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/signup" className="text-gray-300 hover:text-green-500 transition-colors">Partner With Us</Link></li>
-              <li><Link href="/features" className="text-gray-300 hover:text-green-500 transition-colors">Revenue Amplification</Link></li>
-              <li><Link href="/peak-optimization" className="text-gray-300 hover:text-green-500 transition-colors">Peak Hour Optimization</Link></li>
-              <li><Link href="/analytics" className="text-gray-300 hover:text-green-500 transition-colors">Analytics Dashboard</Link></li>
-              <li><Link href="/support" className="text-gray-300 hover:text-green-500 transition-colors">Restaurant Support</Link></li>
+              <li><Link href="/legal/contact" className="text-gray-300 hover:text-green-500 transition-colors">Partner With Us</Link></li>
+              <li><Link href="/features" className="text-gray-300 hover:text-green-500 transition-colors">Features</Link></li>
+              <li><Link href="/pricing" className="text-gray-300 hover:text-green-500 transition-colors">Pricing</Link></li>
+              <li><Link href="/legal/contact" className="text-gray-300 hover:text-green-500 transition-colors">Restaurant Support</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Impact</h3>
+            <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/impact" className="text-gray-300 hover:text-green-500 transition-colors">Environmental Impact</Link></li>
-              <li><Link href="/community" className="text-gray-300 hover:text-green-500 transition-colors">Community Partners</Link></li>
-              <li><Link href="/sustainability" className="text-gray-300 hover:text-green-500 transition-colors">Sustainability Report</Link></li>
-              <li><Link href="/blog" className="text-gray-300 hover:text-green-500 transition-colors">Blog</Link></li>
+              <li><Link href="/" className="text-gray-300 hover:text-green-500 transition-colors">About Us</Link></li>
+              <li><Link href="/legal/contact" className="text-gray-300 hover:text-green-500 transition-colors">Contact</Link></li>
+              <li><Link href="/legal/data-deletion" className="text-gray-300 hover:text-green-500 transition-colors">Account Deletion</Link></li>
             </ul>
           </div>
         </div>
@@ -68,9 +66,9 @@ export function CustomerFooter() {
               © 2025 {siteConfig.shortName}. All rights reserved. Revolutionizing restaurant revenue.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Terms of Service</Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Cookie Policy</Link>
+              <Link href="/legal/privacy" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Privacy Policy</Link>
+              <Link href="/legal/terms" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Terms of Service</Link>
+              <Link href="/legal/contact" className="text-gray-400 hover:text-green-500 text-sm transition-colors">Contact</Link>
             </div>
           </div>
         </div>

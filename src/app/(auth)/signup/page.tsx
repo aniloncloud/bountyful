@@ -1,52 +1,10 @@
-"use client";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-
-const schema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  password: z.string().min(6),
-});
-
-type Values = z.infer<typeof schema>;
+import { AppDownloadRedirect } from "@/components/AppDownloadRedirect";
 
 export default function SignupPage() {
-  const { register, handleSubmit, formState } = useForm<Values>({ resolver: zodResolver(schema) });
-  const onSubmit = (values: Values) => {
-    console.log("Basic signup:", values);
-    // Navigate to restaurant profile onboarding
-    window.location.href = "/onboarding/restaurant-profile";
-  };
   return (
-    <div>
-      <h1 className="text-2xl font-semibold">Create your account</h1>
-      <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">Start setting up your venue.</p>
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
-        <div>
-          <Label htmlFor="name">Full name</Label>
-          <Input id="name" placeholder="Alex Chef" {...register("name")} />
-          {formState.errors.name && <p className="mt-1 text-xs text-red-600">{formState.errors.name.message}</p>}
-        </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" placeholder="you@restaurant.com" {...register("email")} />
-          {formState.errors.email && <p className="mt-1 text-xs text-red-600">{formState.errors.email.message}</p>}
-        </div>
-        <div>
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="••••••••" {...register("password")} />
-          {formState.errors.password && <p className="mt-1 text-xs text-red-600">{formState.errors.password.message}</p>}
-        </div>
-        <Button className="w-full" type="submit">Create account</Button>
-      </form>
-      <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
-        Already have an account? <Link href="/login" className="underline">Log in</Link>
-      </p>
-    </div>
+    <AppDownloadRedirect
+      title="Sign Up"
+      description="Create your Bountyful account in the mobile app and start saving today."
+    />
   );
 }
