@@ -43,11 +43,13 @@ function isSpam(message: string, subject: string): boolean {
 }
 
 // Email routing based on type
+// All emails route to info@bountyful.app (base email in Google Workspace)
+// Subject line includes form type for easy filtering/routing
 const emailRouting = {
-  support: 'support@bountyful.app',
-  privacy: 'privacy@bountyful.app',
-  legal: 'legal@bountyful.app',
-  partners: 'partners@bountyful.app',
+  support: 'info@bountyful.app',
+  privacy: 'info@bountyful.app',
+  legal: 'info@bountyful.app',
+  partners: 'info@bountyful.app',
 } as const;
 
 export async function POST(request: NextRequest) {
