@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key from environment
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialize Resend to avoid build-time errors when env var is not available
+function getResendClient() {
+  if (!process.env.RESEND_API_KEY) {
+    return null;
+  }
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 // Simple in-memory rate limiting (use Redis in production for multiple servers)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -101,6 +106,16 @@ export async function POST(request: NextRequest) {
 
     // Get recipient email based on type
     const toEmail = emailRouting[type as keyof typeof emailRouting] || emailRouting.support;
+
+    // Get Resend client
+    const resend = getResendClient();
+    if (!resend) {
+      console.error('Failed to initialize Resend client');
+      return NextResponse.json(
+        { error: 'Email service unavailable. Please try again later.' },
+        { status: 500 }
+      );
+    }
 
     // Send email via Resend
     await resend.emails.send({
